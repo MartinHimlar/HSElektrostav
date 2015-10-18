@@ -48,3 +48,41 @@ form .error {
 	color: #D00;
 	font-weight: bold;
 }
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav-pills>li>a:hover, .nav-pills>li>a:focus,
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	color: #1A8619;
+	background-color: #B4E609;
+}
+
+a {
+	color: #1A8619;
+	text-decoration: none;
+	background-color: #EEEEEE;
+}
+
+.header {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #B4E609;
+}
+
+.footer {
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #B4E609;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #1A8619;
+}
+
+.navbar-default {
+	background-color: white;
+	border-color: transparent;
+	border-bottom: 1px solid #B4E609;
+	padding-bottom: 20px;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	 border-color: #B4E609;
+ }
