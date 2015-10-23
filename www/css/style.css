@@ -86,3 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
 	 border-color: #B4E609;
  }
+
+.contact {
+	color: #1A8619;
+	text-decoration: none;
+	background-color: #fff;
+}

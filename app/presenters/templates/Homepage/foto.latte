@@ -1,2 +1,5 @@
 {block content}
 	<h3>fotogalerie</h3>
+	{foreach $images as $key => $image}
+		<img src="{$basePath . $image}" class="image img-thumbnail" /><br />
+	{/foreach}

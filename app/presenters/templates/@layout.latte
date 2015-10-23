@@ -35,7 +35,6 @@
 
 		<nav class="navbar navbar-default visible-xs">
 			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
@@ -49,8 +48,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-						<li><a href="#">Link</a></li>
+						<li role="presentation" {ifCurrent Homepage: }class="active"{/ifCurrent}><a n:href="Homepage: ">O Nás</a></li>
+						<li role="presentation" {ifCurrent Homepage:foto}class="active"{/ifCurrent}><a n:href="Homepage:foto">Fotogalerie</a></li>
+						<li role="presentation" {ifCurrent Homepage:contact}class="active"{/ifCurrent}><a n:href="Homepage:contact">Kontakty</a></li>
 					</ul>
 
 				</div><!-- /.navbar-collapse -->
@@ -63,14 +63,11 @@
 			{include content}
 		</div>
 
-		<!--div class="row marketing">
-		</div>-->
-
 		<footer class="footer">
 			<p>Vytvořil &copy; Martin Himlar pro HS Elektrostav s.r.o.</p>
 		</footer>
 
-	</div> <!-- /container -->
+	</div>
 
 
 
