@@ -1,5 +1,37 @@
 {block content}
 	<h3>fotogalerie</h3>
 	{foreach $images as $key => $image}
-		<img src="{$basePath . $image}" class="image img-thumbnail" /><br />
+		{if $iterator->getCounter() % 4 == 0}
+			<div class="row">
+		{elseif $iterator->isFirst()}
+			<div class="row">
+		{elseif $iterator->isLast()}
+			<div class="row">
+		{/if}
+
+			<div class="col-xs-6 col-md-3">
+				<a href="{$basePath . $image}" class="thumbnail">
+					<img src="{$basePath . $image}" class="image" />
+				</a>
+			</div>
+		{if $iterator->getCounter() % 4 == 0}
+			</div>
+		{elseif $iterator->isLast()}
+			</div>
+		{/if}
 	{/foreach}
+<p class="text-center center-block row">
+	{if $paginator->isFirst()}
+		<a n:href="foto $paginator->page-1" class="btn btn-success disabled"> <<< </a>
+		<span class="btn btn-success disabled">{$paginator->page}</span>
+		<a n:href="foto $paginator->page+1" class="btn btn-success"> >>> </a>
+	{elseif $paginator->isLast()}
+		<a n:href="foto $paginator->page-1" class="btn btn-success"> <<< </a>
+		<span class="btn btn-success disabled">{$paginator->page}</span>
+		<a href="foto $paginator->page+1" class="btn btn-success disabled"> >>> </a>
+	{else}
+		<a n:href="foto $paginator->page-1" class="btn btn-success"> <<< </a>
+		<span class="btn btn-success disabled">{$paginator->page}</span>
+		<a n:href="foto $paginator->page+1" class="btn btn-success"> >>> </a>
+	{/if}
+</p>
