@@ -1,0 +1,10 @@
+{redefine #row-actions}
+	{if $row->id != $user->id}
+		<a href="{plink Users:edit, $row->id}" class="btn btn-primary btn-xs">Upravit</a>
+		<a href="{plink Users:delete, $row->id}" class="btn btn-danger btn-xs">smazat</a>
+	{/if}
+{/redefine}
+
+{redefine cell-role}
+		{$row->ref('role')->name}
+{/redefine}

@@ -9,16 +9,16 @@ Usage: create-user.php <name> <password>
 	exit(1);
 }
 
-list(, $name, $password) = $_SERVER['argv'];
+list(, $name, $password, $role) = $_SERVER['argv'];
 
 $container = require __DIR__ . '/../app/bootstrap.php';
-$manager = $container->getByType('App\Model\UserManager');
+$manager = $container->getByType('App\Users\UserManager'); /** @var $manager App\Users\UserManager */
 
 try {
-	$manager->add($name, $password);
+	$manager->add($name, $password, NULL, $role);
 	echo "User $name was added.\n";
 
-} catch (App\Model\DuplicateNameException $e) {
+} catch (DuplicateNameException $e) {
 	echo "Error: duplicate name.\n";
 	exit(1);
 }

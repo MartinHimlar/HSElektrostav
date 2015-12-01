@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Presenters;
+namespace App\FrontModule\Presenters;
 
 use App\Model\ImagesManager;
+use App\Presenters\BasePresenter;
 use Nette;
 use App\Model;
 

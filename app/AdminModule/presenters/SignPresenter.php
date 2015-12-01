@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Presenters;
+namespace App\AdminModule\Presenters;
 
+use App\Presenters\BasePresenter;
 use Nette;
 use App\Forms\SignFormFactory;
 
@@ -28,9 +29,9 @@ class SignPresenter extends BasePresenter
 
 	public function actionOut()
 	{
-		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out.');
-		$this->redirect('in');
+		$this->getUser()->logout(TRUE);
+		$this->flashMessage('Byli jste úspěšně odhlášeni.', 'success');
+		$this->redirect('Sign:In');
 	}
 
 }

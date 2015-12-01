@@ -30,7 +30,8 @@
 		"nette/security": "~2.3.0",
 		"nette/utils": "~2.3.0",
 		"latte/latte": "~2.3.0",
-		"tracy/tracy": "~2.3.0"
+		"tracy/tracy": "~2.3.0",
+		"nextras/datagrid": "~2.1.1"
 	},
 	"require-dev": {
 		"nette/tester": "~1.3"
