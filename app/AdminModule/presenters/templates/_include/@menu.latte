@@ -1,0 +1,67 @@
+<!-- [start] non mobile version -->
+<div class="header clearfix hidden-xs">
+	<nav>
+		<ul class="nav nav-pills pull-right">
+			{if $user->isInRole('guest')}
+				<li role="presentation"><a n:href=":Front:Homepage: ">Hlavní stránka</a></li>
+			{else}
+
+				<li role="presentation" class="dropdown{if $presenter->isLinkCurrent('Customers:*')} active{/if}">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Zákaznici <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li role="presentation"><a n:href="Customers:Add">Nový zákazník</a></li>
+						<li role="presentation"><a n:href="Customers: ">Přehled zákazníku</a></li>
+					</ul>
+				</li>
+
+				<li role="presentation" class="dropdown{if $presenter->isLinkCurrent('Users:*') || $presenter->isLinkCurrent('Roles:*')} active{/if}">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Uživatelé <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li role="presentation"><a n:href="Users:Add">Nový uživatel</a></li>
+						<li role="presentation"><a n:href="Users: ">Přehled uživatelů</a></li>
+						<li role="separator" class="divider"></li>
+						<li role="presentation"><a n:href="Sign:Out">Přehled rolí</a></li>
+						<li role="presentation"><a n:href="Sign:Out">Nová role</a></li>
+					</ul>
+				</li>
+
+				<li role="presentation" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Můj účet <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li role="presentation"><a n:href="Sign:Out">Odhlásit se</a></li>
+					</ul>
+				</li>
+			{/if}
+		</ul>
+	</nav>
+	<img src="{$basePath}/images/logo.png" alt="Logo" />
+</div>
+<!-- [end] non mobile version -->
+
+<!-- [start] mobile version -->
+<nav class="navbar navbar-default visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<img src="{$basePath}/images/logo.png" alt="Logo" />
+		</div>
+
+		<div class="collapse navbar-collapse" id="mobile-menu">
+			<ul class="nav navbar-nav">
+				{if $user->isInRole('guest')}
+					<li role="presentation" {ifCurrent Homepage: }class="active"{/ifCurrent}><a n:href=":Front:Homepage: ">Hlavní stránka</a></li>
+				{else}
+					<li role="presentation" {ifCurrent Sign:Out}class="active"{/ifCurrent}><a n:href="Homepage: ">Můj účet</a></li>
+					<li role="presentation" {ifCurrent Sign:Out}class="active"{/ifCurrent}><a n:href="Sign:Out">Odhlásit se</a></li>
+				{/if}
+			</ul>
+
+		</div>
+	</div>
+</nav>
+<!-- [end] mobile version -->
