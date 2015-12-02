@@ -1,6 +1,11 @@
 {block content}
-<h1 n:block=title>Přihlášení</h1>
-
-{control signInForm}
-
-{* or use {include '../components/form.latte', form => signInForm} *}
+<div class="center-block form-sm">
+	<h1 n:block="title" class="text-center">Přihlášení</h1>
+	{form signInForm}
+		<div class="alert alert-danger" n:if="$form->ownErrors" n:foreach="$form->ownErrors as $error">{$error}</div>
+		<div n:foreach="$form->controls as $input" class="form-group">
+			{label $input /}
+			{input $input} <span class=error n:ifcontent>{$input->error}</span>
+		</div>
+	{/form}
+</div>
