@@ -1,0 +1,5 @@
+{redefine #row-actions}
+	{if $row->id != $user->id}
+		<a href="{plink Customers:detail, $row->id}" class="btn btn-primary btn-xs">Upravit</a>
+	{/if}
+{/redefine}

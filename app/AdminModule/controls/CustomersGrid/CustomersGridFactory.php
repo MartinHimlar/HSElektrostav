@@ -2,19 +2,19 @@
 
 namespace App\AdminModule\Controls;
 
-use App\Users\UserManager;
+use App\Customers\CustomerRepository;
 use Nette;
 use Nextras\Datagrid\Datagrid;
 
-class UsersGridFactory extends Nette\Object
+class CustomersGridFactory extends Nette\Object
 {
 
 	/**
-	 * @var UsersDataSource
+	 * @var CustomersDataSource
 	 */
 	private $dataSource;
 
-	public function __construct(UsersDataSource $dataSource)
+	public function __construct(CustomersDataSource $dataSource)
 	{
 		$this->dataSource = $dataSource;
 	}
@@ -22,28 +22,29 @@ class UsersGridFactory extends Nette\Object
 	public function create($parent = NULL, $name = NULL)
 	{
 		$grid = new Datagrid($parent, $name);
-		$grid->addColumn(UserManager::COLUMN_ID, 'Id')
+		$grid->addColumn(CustomerRepository::COLUMN_ID, 'id')
 			->enableSort(Datagrid::ORDER_ASC);
-		$grid->addColumn(UserManager::COLUMN_NAME, 'uživatelské jméno')
+		$grid->addColumn(CustomerRepository::COLUMN_NAME, 'název')
 			->enableSort();
-		$grid->addColumn(UserManager::COLUMN_EMAIL, 'email')
+		$grid->addColumn(CustomerRepository::COLUMN_CITY, 'město')
 			->enableSort();
-		$grid->addColumn(UserManager::COLUMN_ROLE, 'role');
+		$grid->addColumn(CustomerRepository::COLUMN_IC, 'IČ');
 
 		$grid->setDataSourceCallback(array($this->dataSource, 'getDatasource'));
 		$grid->setPagination(20, array($this->dataSource, 'getDatasourceSum'));
 
 		$grid->setFilterFormFactory(function() {
 			$form = new Nette\Forms\Container;
-			$form->addText(UserManager::COLUMN_ID);
-			$form->addText(UserManager::COLUMN_NAME);
-			$form->addText(UserManager::COLUMN_EMAIL);
+			$form->addText(CustomerRepository::COLUMN_ID);
+			$form->addText(CustomerRepository::COLUMN_NAME);
+			$form->addText(CustomerRepository::COLUMN_CITY);
+			$form->addText(CustomerRepository::COLUMN_IC);
 			return $form;
 		});
 
 		$grid->addCellsTemplate(__DIR__ . '/../../../templates/datagrid/@bootstrap3.datagrid.latte');
 		$grid->addCellsTemplate(__DIR__ . '/../../../templates/datagrid/@bootstrap3.extended-pagination.datagrid.latte');
-		$grid->addCellsTemplate(__DIR__ . '/@UsersGrid.latte');
+		$grid->addCellsTemplate(__DIR__ . '/@CustomersGrid.latte');
 		return $grid;
 	}
 

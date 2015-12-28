@@ -2,25 +2,25 @@
 
 namespace App\AdminModule\Controls;
 
-use App\Users\UserManager;
+use App\Customers\CustomerRepository;
 use Nette\Object;
 use Nette\Utils\Paginator;
 
-class UsersDataSource extends Object
+class CustomersDataSource extends Object
 {
 	/**
-	 * @var UserManager
+	 * @var CustomerRepository
 	 */
-	protected $users;
+	protected $customers;
 
 	/**
 	 * @var int
 	 */
 	protected $placeId;
 
-	public function __construct(UserManager $users)
+	public function __construct(CustomerRepository $customers)
 	{
-		$this->users = $users;
+		$this->customers = $customers;
 	}
 
 	public function getDatasource($filter, $order, Paginator $paginator = NULL)
@@ -49,7 +49,7 @@ class UsersDataSource extends Object
 				$filters[$k . ' LIKE ?'] = "%$v%";
 			}
 		}
-		$selection = $this->users->find()->where($filters);
+		$selection = $this->customers->find()->where($filters);
 
 		if ($order) {
 			$selection->order(implode(' ', $order));

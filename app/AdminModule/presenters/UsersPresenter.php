@@ -3,7 +3,7 @@
 namespace App\AdminModule\Presenters;
 
 use App\Forms\AddUserFormFactory;
-use App\StockModule\Controls\UsersGridFactory;
+use App\AdminModule\Controls\UsersGridFactory;
 use App\Users\UserManager;
 use Nette;
 use App\Model;

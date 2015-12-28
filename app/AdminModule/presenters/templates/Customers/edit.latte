@@ -1,0 +1,16 @@
+{block content}
+<div class="center-block form-sm">
+	<h1 n:inner-block="title">
+		{if $id}
+			Úprava zákazníka
+		{else}
+			Nový zákazník
+		{/if}
+	</h1>
+	{form addCustomerForm}
+		<div n:foreach="$form->controls as $input" class="form-group">
+			{label $input /} {if $input->required}(povinné){/if}
+			{input $input} <span class=error n:ifcontent>{$input->error}</span>
+		</div>
+	{/form}
+</div>

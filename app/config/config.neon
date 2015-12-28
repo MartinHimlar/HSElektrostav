@@ -24,10 +24,20 @@ session:
 
 
 services:
-	- App\Users\UserManager
-	- App\Model\ImagesManager
+	# forms
 	- App\Forms\SignFormFactory
 	- App\Forms\AddUserFormFactory
-	- App\StockModule\Controls\UsersDataSource
-	- App\StockModule\Controls\UsersGridFactory
+	- App\Forms\AddCustomerFormFactory
+
+	# models
+	- App\Model\ImagesManager
+	- App\Users\UserManager
+	- App\Customers\CustomerRepository
+
+	# grids & datasources
+	- App\AdminModule\Controls\UsersDataSource
+	- App\AdminModule\Controls\UsersGridFactory
+	- App\AdminModule\Controls\CustomersDataSource
+	- App\AdminModule\Controls\CustomersGridFactory
+
 	router: App\RouterFactory::createRouter
