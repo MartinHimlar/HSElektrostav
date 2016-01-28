@@ -21,6 +21,13 @@ header('Retry-After: 300'); // 5 minutes in seconds
 
 <p>The site is temporarily down for maintenance. Please try again in a few minutes.</p>
 
+<hr>
+
+<h2>Omlouváme se</h2>
+
+<p>Stránky jsou momentálně aktualizovány. Zkuste to později.</p>
+
+
 <?php
 
 exit;
