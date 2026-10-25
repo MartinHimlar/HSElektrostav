@@ -1,9 +1,2 @@
-.idea/*
-log/*
-temp/*
-vendor/*
-www/images/foto/*
-!.gitignore
-!.htaccess
-!web.config
-app/config/config.local.neon
+.idea/
+.DS_Store
