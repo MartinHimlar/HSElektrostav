@@ -1,0 +1,50 @@
+# HS Elektrostav – statický web (Apache, Yellowpoint)
+
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Po zapnutí Let's Encrypt certifikátu odkomentovat – přesměruje vše na HTTPS
+	# RewriteCond %{HTTPS} off
+	# RewriteRule ^ https://www.hselektrostav.cz%{REQUEST_URI} [R=301,L]
+
+	# Skryté soubory (.htaccess, .git, …)
+	RewriteRule (^|/)\. - [F]
+
+	# Adresy z původního webu (Nette)
+	RewriteRule ^index\.php$ / [R=301,L]
+	RewriteRule ^(prihlaseni|admin)(/.*)?$ / [R=301,L]
+	RewriteRule ^images/foto/([0-9]+)\.JPG$ /images/foto/$1.jpg [R=301,L]
+</IfModule>
+
+<IfModule mod_mime.c>
+	AddType font/woff2 .woff2
+	AddType image/svg+xml .svg
+</IfModule>
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/javascript application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 1 hour"
+	ExpiresByType text/html "access plus 0 seconds"
+	ExpiresByType text/css "access plus 1 year"
+	ExpiresByType application/javascript "access plus 1 year"
+	ExpiresByType font/woff2 "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 month"
+	ExpiresByType image/png "access plus 1 month"
+	ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
