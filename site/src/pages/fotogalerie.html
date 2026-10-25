@@ -1,0 +1,35 @@
+---
+title: Fotogalerie | HS Elektrostav s.r.o.
+description: Fotogalerie realizací firmy HS Elektrostav s.r.o. – rekonstrukce, malířské práce, podlahy a elektroinstalace.
+nav: foto
+---
+<section class="page-head">
+	<div class="container">
+		<h1>Fotogalerie</h1>
+		<p class="lead">Výběr z našich realizací. Kliknutím fotografii zvětšíte.</p>
+	</div>
+</section>
+
+<section class="section section-tight">
+	<div class="container">
+		<div class="gallery-grid" data-gallery>
+{{gallery_all}}
+		</div>
+	</div>
+</section>
+
+<div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Zvětšená fotografie">
+	<button class="lb-btn lb-close" type="button" data-lb-close aria-label="Zavřít">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+	</button>
+	<button class="lb-btn lb-prev" type="button" data-lb-prev aria-label="Předchozí">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+	</button>
+	<figure class="lb-figure">
+		<img data-lb-img alt="">
+		<figcaption data-lb-counter></figcaption>
+	</figure>
+	<button class="lb-btn lb-next" type="button" data-lb-next aria-label="Další">
+		<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+	</button>
+</div>
